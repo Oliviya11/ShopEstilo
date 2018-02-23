@@ -4,30 +4,45 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class Buyer {
+public class Customer {
+
+	@NotNull
+	private long buyerId;
+
 	@NotNull
 	@Size(min = 4, max = 40)
 	private String name;
+
 	@NotNull
 	@Size(max = 100)
 	private String addreess;
+
 	@NotNull
 	@Size(max = 25)
 	private String mobilePhone;
+
+	@NotNull
 	@Email
 	private String email;
 
-	public Buyer(String name, String mobilePhone, String address) {
+	@NotNull
+	@Size(min = 6)
+	private String password;
+
+	public Customer(String name, String mobilePhone, String address) {
 		this.name = name;
 		this.mobilePhone = mobilePhone;
 		this.addreess = address;
 	}
 
-	public Buyer(String name, String mobilePhone, String address, String email) {
+	public Customer(@NotNull long buyerId, @NotNull String name, @NotNull String mobilePhone,
+				 @NotNull String address, @NotNull String email, @NotNull String password) {
+		this.buyerId = buyerId;
 		this.name = name;
 		this.mobilePhone = mobilePhone;
 		this.addreess = address;
 		this.email = email;
+		this.password = password;
 	}
 
 	public String getName() {
@@ -60,6 +75,14 @@ public class Buyer {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override

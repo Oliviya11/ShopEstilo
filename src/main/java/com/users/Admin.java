@@ -5,16 +5,35 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Admin {
+
+	@NotNull
+	private long adminId;
+
 	@NotNull
 	@Size(min = 4, max = 40)
 	private String name;
+
 	@NotNull
 	@Email
 	private String email;
 
-	public Admin(String name, String email) {
+	@NotNull
+	@Size(min = 6)
+	private String password;
+
+	public Admin(@NotNull long adminId, @NotNull String name, @NotNull String email, @NotNull String password) {
+		this.adminId = adminId;
 		this.name = name;
 		this.email = email;
+		this.password = password;
+	}
+
+	public long getAdminId() {
+		return adminId;
+	}
+
+	public void setAdminId(long adminId) {
+		this.adminId = adminId;
 	}
 
 	public String getName() {
@@ -31,6 +50,14 @@ public class Admin {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
