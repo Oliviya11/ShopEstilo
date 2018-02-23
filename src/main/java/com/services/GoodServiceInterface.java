@@ -9,7 +9,7 @@ import java.util.List;
 public interface GoodServiceInterface {
 
     void addGood(Good good);
-    void updateGood(long id, Good good);
+    void updateGood(Good good);
     void deleteGood(long id);
     List<Good> getGoodsByPrice(long from, long to);
     List<Good> getGoodsBySize(List<SizeEnum> sizeList);
